@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import java.io.InputStreamReader;
@@ -25,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     public void activity(View view) {
         Intent intent = new Intent(this, findActivity.class);
         startActivity(intent);
-
     }
 
     public void profile(View view) {
@@ -52,22 +48,30 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Helper methods, need peavad olema igas klassis kus tahame infot küsida kasutaja kohta või seda muuta.
-
+    //Failis on andmed eraldi ridadel: nimi, xp, elud
 
     public void addXP(int amount){
-        writeFile(getName()+"\n"+(getXP()+amount));
+        writeProfile(getName()+"\n"+(getXP()+amount) + "\n" + getElud());
+    }
+
+    public String getElud() {
+        String in = readProfile();
+        return in.split("\n")[2];
     }
 
     public String getName() {
-        String in = readFile();
+        String in = readProfile();
         return in.split("\n")[0];
     }
     public int getXP() {
-        String in = readFile();
+        String in = readProfile();
         return Integer.parseInt(in.split("\n")[1]);
     }
+    public void eemaldaElu(){
+        writeProfile(getName()+"\n"+getXP() + "\n" + (Integer.parseInt(getElud())-1));
+    }
 
-    public void writeFile(String info) {
+    public void writeProfile(String info) {
         try {
             FileOutputStream fileOutputStream = openFileOutput("andmed.txt", MODE_PRIVATE);
             fileOutputStream.write(info.getBytes());
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public String readFile() {
+    public String readProfile() {
         try {
             FileInputStream fileInputStream = openFileInput("andmed.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);

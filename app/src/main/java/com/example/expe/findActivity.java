@@ -13,8 +13,15 @@ public class findActivity extends AppCompatActivity {
         setContentView(R.layout.find_activity);
     }
 
-    public void chooseActivity (View view){
+    public void chooseActivityAlone (View view){
         Intent intent = new Intent(this, chooseYourActivity.class);
+        intent.putExtra("kasÜksi", true);
+        startActivity(intent);
+    }
+
+    public void chooseActivityGroup (View view){
+        Intent intent = new Intent(this, chooseYourActivity.class);
+        intent.putExtra("kasÜksi", false);
         startActivity(intent);
     }
 }

@@ -41,23 +41,24 @@
         android:background="#FFFFFF" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btt1"
         android:layout_width="match_parent"
         android:layout_height="228dp"
+        android:onClick="pressedOption1"
         android:text="Activiti nr 1" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Or"
-        android:textSize="30sp" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btt2"
         android:layout_width="match_parent"
         android:layout_height="225dp"
+        android:onClick="pressedOption2"
         android:text="Activity nr 2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pressedPass"
+        android:text="Pass and lose a life" />
 
 </LinearLayout>

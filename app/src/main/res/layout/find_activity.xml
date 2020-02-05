@@ -44,14 +44,14 @@
         android:id="@+id/onePersonButton"
         android:layout_width="match_parent"
         android:layout_height="270dp"
-        android:onClick="chooseActivity"
+        android:onClick="chooseActivityAlone"
         android:text="I am alone" />
 
     <Button
         android:id="@+id/groupButton"
         android:layout_width="match_parent"
         android:layout_height="267dp"
-        android:onClick="chooseActivity"
+        android:onClick="chooseActivityGroup"
         android:text="I am with a group " />
 
     <LinearLayout
