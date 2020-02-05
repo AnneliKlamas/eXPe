@@ -40,6 +40,7 @@ public class chooseYourActivity extends AppCompatActivity {
     }
 
     public void pressedOption2(View view){
+        writeMission(leiaKlikitud(bt2.getText().toString()));
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

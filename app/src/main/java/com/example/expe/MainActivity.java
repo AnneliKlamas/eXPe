@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,6 +19,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (readMission() == null){
+            Button btn = (Button) findViewById(R.id.current);
+            btn.setEnabled(false);
+        }else{
+            Button btn = (Button) findViewById(R.id.activityButton);
+            btn.setEnabled(false);
+        }
+    }
+
+    @Override //ei lase welcome screenile tagasi.
+    public void onBackPressed() {
     }
 
     public void activity(View view) {
@@ -34,16 +48,38 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Missioninfo(View view) {
+        Intent intent = new Intent(this, ViewTegevus.class);
+        System.out.println("sdfkalsdfknsl");
+        try{
+        startActivity(intent);}catch (Exception e){
+            System.out.println(e);
+        }
+    }
 
 
 
+    //missiooni lugemine
+    public Tegevus readMission() {
+        try {
+            FileInputStream fileInputStream = openFileInput("missioon.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer = new StringBuffer();
 
-
-
-
-
-
+            String title = bufferedReader.readLine();
+            if(title.equals(""))
+                return null;
+            String desc = bufferedReader.readLine();
+            String funfact = bufferedReader.readLine();
+            int xp = Integer.parseInt(bufferedReader.readLine());
+            Tegevus t = new Tegevus(title,desc,funfact,false,xp); //boolean on dummy
+            return t;
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
 
 

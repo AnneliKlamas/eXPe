@@ -9,6 +9,8 @@ import android.widget.RatingBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.FileOutputStream;
+
 public class Feedback extends AppCompatActivity {
 
     @Override
@@ -18,7 +20,20 @@ public class Feedback extends AppCompatActivity {
     }
 
     public void submit(View view){
+        writeMission(null);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void writeMission(Tegevus t) {
+        String info = "";
+        if (t != null)
+            info = t.getTitle() + "\n" + t.getDescription() + "\n" + t.getFunFact() + "\n" + t.getXP();
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("missioon.txt", MODE_PRIVATE);
+            fileOutputStream.write(info.getBytes());
+            fileOutputStream.close();
+        } catch (Exception e) {
+        }
     }
 }
