@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         TextView notification = findViewById(R.id.notificationText);
 
         if(getElud() == 0){
@@ -52,11 +50,9 @@ public class MainActivity extends AppCompatActivity {
             btn.setEnabled(false);
         }
 
-        TextView username = findViewById(R.id.username);
-        TextView xpväli = findViewById(R.id.xpväli);
+        Button username = findViewById(R.id.profileButton);
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
-        xpväli.setText(String.valueOf(getXP()));
 
         int heart = 0x2764;
         int empty = 0x1F5A4;
