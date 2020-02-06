@@ -24,7 +24,7 @@ public class findActivity extends AppCompatActivity {
         xpväli.setText(String.valueOf(getXP()));
 
         int heart = 0x2764;
-        int empty = 0x2661;
+        int empty = 0x1F5A4;
 
         String heartAsString = new String(Character.toChars(heart));
         String emptyAsString = new String(Character.toChars(empty));
