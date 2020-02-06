@@ -7,32 +7,26 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_width="402dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorBar">
+        android:background="@color/colorBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/profileButton"
+            android:layout_width="222dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:scrollHorizontally="false"
-            android:text="Username"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/xpväli"
-            android:layout_width="142dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="XP"
-            android:textSize="24sp" />
+            android:drawableLeft="@drawable/ic_stat_name"
+            android:onClick="profile"
+            android:text="View profile" />
 
         <TextView
             android:id="@+id/elud"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:text="Life"
             android:textSize="24sp" />

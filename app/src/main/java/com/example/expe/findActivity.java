@@ -17,11 +17,9 @@ public class findActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.find_activity);
 
-        TextView username = findViewById(R.id.username);
-        TextView xpväli = findViewById(R.id.xpväli);
+        TextView username = findViewById(R.id.profileButton);
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
-        xpväli.setText(String.valueOf(getXP()));
 
         int heart = 0x2764;
         int empty = 0x1F5A4;
@@ -76,5 +74,10 @@ public class findActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
         return null;
+    }
+
+    public void profile(View view) {
+        Intent intent = new Intent(this, myProfile.class);
+        startActivity(intent);
     }
 }
