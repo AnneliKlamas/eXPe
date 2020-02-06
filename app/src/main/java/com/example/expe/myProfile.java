@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class myProfile extends AppCompatActivity {
 
@@ -51,20 +53,58 @@ public class myProfile extends AppCompatActivity {
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Scoreboard");
         TableLayout table = findViewById(R.id.tableLayout);
-        table.removeAllViews();
 
-        TableRow tr = new TableRow(this);
-        TextView s = new TextView(this);
-        s.setText("Juuus");
-        s.setGravity(Gravity.CENTER);
-        tr.addView(s);
+        List<String[]> users = new ArrayList<>();
+
+        users.add(new String[]{getName(), String.valueOf(getXP())});
+        users.add(new String[]{"Enrih", "100"});
+        users.add(new String[]{"Anneli", "99"});
+        users.add(new String[]{"Anett", "98"});
+        users.add(new String[]{"Karl", "97"});
+        users.add(new String[]{"Uno", "96"});
+        users.add(new String[]{"Jaagup", "95"});
+
+        table.setStretchAllColumns(true);
+        table.bringToFront();
+
+
+        for (int i = 0; i < users.size(); i++) {
+            TableRow tr = new TableRow(this);
+
+            TextView txt1 = new TextView(this);
+            TextView txt2 = new TextView(this);
+
+            txt1.setText(users.get(i)[0]);
+            txt1.setGravity(Gravity.CENTER);
+            txt2.setText(users.get(i)[1]);
+            txt2.setGravity(Gravity.CENTER);
+
+            tr.addView(txt1);
+            tr.addView(txt2);
+
+            table.addView(tr);
+        }
+
+
     }
 
     public void achivements(View view){
+        String ac1 = "Complete 3 task!";
+        String ac2 = "Lose 3 hearts!";
+        List<String> achivements = new ArrayList<>();
+        achivements.add(ac1);
+        achivements.add(ac2);
+
+
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Achivements");
         TableLayout table = findViewById(R.id.tableLayout);
         table.removeAllViews();
+
+        for (int i = 0; i < achivements.size(); i++) {
+            TableRow row = new TableRow(myProfile.this);
+
+        }
     }
 
     public int getElud() {
