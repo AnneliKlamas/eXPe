@@ -42,13 +42,15 @@ public class MainActivity extends AppCompatActivity {
             notification.setVisibility(View.INVISIBLE);
         }
 
-        if (readMission() == null){
+        /*if (readMission() == null){
             Button btn = (Button) findViewById(R.id.current);
             btn.setEnabled(false);
+            btn.setVisibility(View.GONE);
         }else{
             Button btn = (Button) findViewById(R.id.activityButton);
             btn.setEnabled(false);
-        }
+            btn.setVisibility(View.GONE);
+        }*/
 
         Button username = findViewById(R.id.profileButton);
         TextView elud = findViewById(R.id.elud);

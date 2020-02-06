@@ -5,6 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/profileButton"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_stat_name"
+            android:onClick="profile"
+            android:text="View profile" />
+
+        <TextView
+            android:id="@+id/elud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Life"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/infoButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="info"
+        android:text="About eXPe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
@@ -40,7 +79,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="536dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
+        android:onClick="info"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/xp"
         tools:layout_editor_absoluteX="1dp">
@@ -66,9 +106,9 @@
         android:id="@+id/pealkiri"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

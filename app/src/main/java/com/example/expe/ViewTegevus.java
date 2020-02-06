@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,23 @@ public class ViewTegevus extends AppCompatActivity  {
         txt2.setText(t.getDescription());
         txt3.setText(t.getFunFact());
         txt4.setText(""+t.getXP());
+
+        TextView username = findViewById(R.id.profileButton);
+        TextView elud = findViewById(R.id.elud);
+        username.setText(getName());
+
+        int heart = 0x2764;
+        int empty = 0x1F5A4;
+
+        String heartAsString = new String(Character.toChars(heart));
+        String emptyAsString = new String(Character.toChars(empty));
+        String lives = new String(new char[getElud()]).replace("\0", heartAsString) + new String(new char[3 - getElud()]).replace("\0", emptyAsString);
+        elud.setText(lives);
+    }
+
+    public void profile(View view) {
+        Intent intent = new Intent(this, myProfile.class);
+        startActivity(intent);
     }
 
     public void finish(View view){
@@ -41,6 +59,10 @@ public class ViewTegevus extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    public void info(View view) {
+        Intent intent = new Intent(this, appInfo.class);
+        startActivity(intent);
+    }
 
     public String readProfile() {
         try {
