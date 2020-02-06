@@ -18,6 +18,7 @@ import java.util.List;
 public class chooseYourActivity extends AppCompatActivity {
 
     private boolean kasOlenÜksi;
+
     private Tegevus t1 = new Tegevus("Billiard", "You can play billiard there and there.", "The first coin-operated billiard table was patented in 1903.", false, 10);
     private Tegevus t2 = new Tegevus("Botanical garden", "Visit the botanical garden.", "Kew Gardens is the world's largest collection of living plants situated in London", true, 8);
     private Tegevus t3 = new Tegevus("Billiard2", "You can play billiard there and there.", "The first coin-operated billiard table was patented in 1903.", false, 10);
@@ -38,7 +39,11 @@ public class chooseYourActivity extends AppCompatActivity {
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
         xpväli.setText(String.valueOf(getXP()));
-        elud.setText(String.valueOf(getElud()));
+
+        int heart = 0x2764;
+        String heartAsString = new String(Character.toChars(heart));
+        String lives = new String(new char[getElud()]).replace("\0", heartAsString);
+        elud.setText(lives);
 
         bt1 = (Button) findViewById(R.id.btt1);
         bt1.setText(annaSuvaliseTegevusePealkiri(kasOlenÜksi));

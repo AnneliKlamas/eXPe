@@ -22,7 +22,12 @@ public class findActivity extends AppCompatActivity {
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
         xpväli.setText(String.valueOf(getXP()));
-        elud.setText(String.valueOf(getElud()));
+
+        int heart = 0x2764;
+        String heartAsString = new String(Character.toChars(heart));
+        String lives = new String(new char[getElud()]).replace("\0", heartAsString);
+        elud.setText(lives);
+
     }
 
     public void chooseActivityAlone (View view){
