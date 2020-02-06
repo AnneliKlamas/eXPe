@@ -76,6 +76,7 @@ public class chooseYourActivity extends AppCompatActivity {
     public void pressedPass(View view) {
         eemaldaElu();
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("kasFinishisin", false);
         startActivity(intent);
     }
 

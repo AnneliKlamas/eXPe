@@ -40,6 +40,23 @@ public class myProfile extends AppCompatActivity {
         String lives = new String(new char[getElud()]).replace("\0", heartAsString) + new String(new char[3 - getElud()]).replace("\0", emptyAsString);
         elud.setText(lives);
 
+
+        TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
+        table.setStretchAllColumns(true);
+        table.bringToFront();
+        if(readCompletedTasks() == null)
+            return;
+        String tehtud = readCompletedTasks();
+
+        for (String s : tehtud.split("\n")) {
+            TableRow row = new TableRow(this);
+            TextView txx = new TextView(this);
+            txx.setText(s);
+            txx.setGravity(Gravity.CENTER);
+            row.addView(txx);
+            table.addView(row);
+        }
     }
 
     public void tehtud(View view){
@@ -47,6 +64,20 @@ public class myProfile extends AppCompatActivity {
         txt.setText("Completed tasks");
         TableLayout table = findViewById(R.id.tableLayout);
         table.removeAllViews();
+        table.setStretchAllColumns(true);
+        table.bringToFront();
+        if(readCompletedTasks() == null)
+            return;
+        String tehtud = readCompletedTasks();
+
+        for (String s : tehtud.split("\n")) {
+            TableRow row = new TableRow(this);
+            TextView txx = new TextView(this);
+            txx.setText(s);
+            txx.setGravity(Gravity.CENTER);
+            row.addView(txx);
+            table.addView(row);
+        }
     }
 
     public void edetabel(View view){
@@ -104,6 +135,15 @@ public class myProfile extends AppCompatActivity {
     }
 
     public void achivements(View view){
+        TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
+        txt.setText("Achivements");
+        TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
+
+        table.setStretchAllColumns(true);
+        table.bringToFront();
+
+
         String ac1 = "Complete 3 task!";
         String ac2 = "Lose 3 hearts!";
         List<String> achivements = new ArrayList<>();
@@ -111,14 +151,14 @@ public class myProfile extends AppCompatActivity {
         achivements.add(ac2);
 
 
-        TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
-        txt.setText("Achivements");
-        TableLayout table = findViewById(R.id.tableLayout);
-        table.removeAllViews();
 
         for (int i = 0; i < achivements.size(); i++) {
-            TableRow row = new TableRow(myProfile.this);
-
+            TableRow row = new TableRow(this);
+            TextView txx = new TextView(this);
+            txx.setText(achivements.get(i));
+            txx.setGravity(Gravity.CENTER);
+            row.addView(txx);
+            table.addView(row);
         }
     }
 
@@ -139,6 +179,24 @@ public class myProfile extends AppCompatActivity {
     public String readProfile() {
         try {
             FileInputStream fileInputStream = openFileInput("andmed.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer = new StringBuffer();
+
+            String lines;
+            while ((lines = bufferedReader.readLine()) != null) {
+                stringBuffer.append(lines + "\n");
+            }
+            return stringBuffer.toString();
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public String readCompletedTasks() {
+        try {
+            FileInputStream fileInputStream = openFileInput("completed.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

@@ -51,11 +51,13 @@ public class ViewTegevus extends AppCompatActivity  {
     public void finish(View view){
         addXP(t.getXP());
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("kasFinishisin", true);
         startActivity(intent);
     }
     public void quit(View view){
         eemaldaElu();
         Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("kasFinishisin", false);
         startActivity(intent);
     }
 

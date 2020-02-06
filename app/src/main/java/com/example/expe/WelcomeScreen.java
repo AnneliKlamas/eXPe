@@ -18,6 +18,7 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.welcome_layout);
         writeProfile("Juss Kaalikas\n120\n3");//nimi, xp, elud
         writeMission(null);
+        writeCompletedTasks("");
 
 
         new Handler().postDelayed(new Runnable() {
@@ -49,6 +50,15 @@ public class WelcomeScreen extends AppCompatActivity {
             info = t.getTitle() + "\n" + t.getDescription() + "\n" + t.getFunFact() + "\n" + t.getXP();
         try {
             FileOutputStream fileOutputStream = openFileOutput("missioon.txt", MODE_PRIVATE);
+            fileOutputStream.write(info.getBytes());
+            fileOutputStream.close();
+        } catch (Exception e) {
+        }
+    }
+
+    public void writeCompletedTasks(String info) {
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("completed.txt", MODE_PRIVATE);
             fileOutputStream.write(info.getBytes());
             fileOutputStream.close();
         } catch (Exception e) {
