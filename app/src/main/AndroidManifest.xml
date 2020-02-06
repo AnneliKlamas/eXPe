@@ -14,7 +14,6 @@
         <activity android:name=".myProfile"></activity>
         <activity android:name=".chooseYourActivity"></activity>
         <activity android:name=".Feedback"></activity>
-        <activity android:name=".ViewTegevus"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".WelcomeScreen">
         <intent-filter>

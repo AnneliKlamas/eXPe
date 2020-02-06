@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -22,6 +24,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     boolean livesOut = false;
+    Tegevus t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +45,7 @@ public class MainActivity extends AppCompatActivity {
             notification.setVisibility(View.INVISIBLE);
         }
 
-        /*if (readMission() == null){
-            Button btn = (Button) findViewById(R.id.current);
-            btn.setEnabled(false);
-            btn.setVisibility(View.GONE);
-        }else{
-            Button btn = (Button) findViewById(R.id.activityButton);
-            btn.setEnabled(false);
-            btn.setVisibility(View.GONE);
-        }*/
+
 
         Button username = findViewById(R.id.profileButton);
         TextView elud = findViewById(R.id.elud);
@@ -88,6 +83,29 @@ public class MainActivity extends AppCompatActivity {
             notification.setText("You have zero hearts remaining! Heart will regenerate at " + time);
         }
 
+        t = readMission();
+
+        if (t == null){
+            LinearLayout missioon = (LinearLayout) findViewById(R.id.missioon);
+            missioon.setVisibility(View.GONE);
+        }
+        else{
+            Button btn = (Button) findViewById(R.id.activityButton);
+            btn.setEnabled(false);
+            btn.setVisibility(View.GONE);
+
+            TextView txt1 = (TextView)findViewById(R.id.pealkiri);
+            TextView txt2 = (TextView)findViewById(R.id.description);
+            TextView txt3 = (TextView)findViewById(R.id.funfact);
+            TextView txt4 = (TextView)findViewById(R.id.xp);
+            txt1.setText(t.getTitle());
+            txt2.setText(t.getDescription());
+            txt3.setText(t.getFunFact());
+            txt4.setText(""+t.getXP());
+        }
+
+
+
     }
 
     @Override //ei lase welcome screenile tagasi.
@@ -109,10 +127,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Missioninfo(View view) {
-        Intent intent = new Intent(this, ViewTegevus.class);
-        startActivity(intent);
-    }
 
 
 
@@ -191,4 +205,19 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+
+    public void finish(View view){
+        addXP(t.getXP());
+        Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("kasFinishisin", true);
+        startActivity(intent);
+    }
+
+    public void quit(View view){
+        eemaldaElu();
+        Intent intent = new Intent(this, Feedback.class);
+        intent.putExtra("kasFinishisin", false);
+        startActivity(intent);
+    }
+
 }

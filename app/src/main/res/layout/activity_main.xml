@@ -45,6 +45,71 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/missioon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/notificationText"
+        tools:layout_editor_absoluteX="-26dp">
+
+        <TextView
+            android:id="@+id/pealkiri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0sp"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/funfact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/xp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:onClick="info"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/xp"
+            tools:layout_editor_absoluteX="1dp">
+
+            <Button
+                android:id="@+id/finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="finish"
+                android:text="Finish" />
+
+            <Button
+                android:id="@+id/quit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="quit"
+                android:text="QUIT MISSION" />
+        </LinearLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/activityButton"
         android:layout_width="wrap_content"
@@ -60,7 +125,7 @@
         android:id="@+id/notificationText"
         android:layout_width="282dp"
         android:layout_height="108dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/activityButton"
         app:layout_constraintEnd_toEndOf="parent"
