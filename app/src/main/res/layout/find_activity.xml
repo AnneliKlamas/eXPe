@@ -16,15 +16,15 @@
             android:gravity="center"
             android:scrollHorizontally="false"
             android:text="Username"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/xpväli"
-            android:layout_width="137dp"
+            android:layout_width="142dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="XP"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/elud"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Life"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <Space

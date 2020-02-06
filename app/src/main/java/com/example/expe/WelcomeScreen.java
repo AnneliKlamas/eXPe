@@ -19,6 +19,7 @@ public class WelcomeScreen extends AppCompatActivity {
         writeProfile("Juss Kaalikas\n0\n3");//nimi, xp, elud
         writeMission(null);
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

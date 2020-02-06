@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 
 public class myProfile extends AppCompatActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);
