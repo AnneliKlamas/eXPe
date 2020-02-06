@@ -53,6 +53,7 @@ public class myProfile extends AppCompatActivity {
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Scoreboard");
         TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
 
         List<String[]> users = new ArrayList<>();
 
@@ -66,6 +67,20 @@ public class myProfile extends AppCompatActivity {
 
         table.setStretchAllColumns(true);
         table.bringToFront();
+
+        TableRow headerRow = new TableRow(this);
+
+        TextView user = new TextView(this);
+        TextView score = new TextView(this);
+        user.setText("\nName\n");
+        user.setGravity(Gravity.CENTER);
+        score.setText("\nScore\n");
+        score.setGravity(Gravity.CENTER);
+
+        headerRow.addView(user);
+        headerRow.addView(score);
+
+        table.addView(headerRow);
 
 
         for (int i = 0; i < users.size(); i++) {
