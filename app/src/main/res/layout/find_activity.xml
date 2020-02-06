@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -34,30 +36,47 @@
             android:gravity="center"
             android:text="Life"
             android:textSize="24sp" />
+
     </LinearLayout>
 
-    <Space
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#FFFFFF" />
+        android:layout_height="273dp">
 
-    <Button
-        android:id="@+id/onePersonButton"
-        android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:onClick="chooseActivityAlone"
-        android:text="I am alone" />
+        <Button
+            android:id="@+id/onePersonButton"
+            android:layout_width="301dp"
+            android:layout_height="258dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/coloryksinda"
+            android:onClick="chooseActivityAlone"
+            android:text="I am alone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/groupButton"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="267dp"
-        android:onClick="chooseActivityGroup"
-        android:text="I am with a group " />
+        android:layout_height="423dp">
+
+        <Button
+            android:id="@+id/groupButton"
+            android:layout_width="298dp"
+            android:layout_height="273dp"
+            android:background="@color/colorgrupp"
+            android:onClick="chooseActivityGroup"
+            android:text="I am with a group "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.096" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"/>
+        android:layout_height="227dp"
+        android:orientation="horizontal" />
 
 </LinearLayout>

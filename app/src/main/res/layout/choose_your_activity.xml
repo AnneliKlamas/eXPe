@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -36,30 +38,59 @@
             android:textSize="24sp" />
     </LinearLayout>
 
-    <Space
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#FFFFFF" />
+        android:layout_height="274dp">
 
-    <Button
-        android:id="@+id/btt1"
-        android:layout_width="match_parent"
-        android:layout_height="228dp"
-        android:onClick="pressedOption1"
-        android:text="Activiti nr 1" />
+        <Button
+            android:id="@+id/btt1"
+            android:layout_width="301dp"
+            android:layout_height="258dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorgrupp"
+            android:onClick="pressedOption1"
+            android:text="Activity nr 1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btt2"
-        android:layout_width="match_parent"
-        android:layout_height="225dp"
-        android:onClick="pressedOption2"
-        android:text="Activity nr 2" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="396dp"
+        android:layout_height="275dp">
 
-    <Button
-        android:id="@+id/button4"
+        <Button
+            android:id="@+id/btt2"
+            android:layout_width="301dp"
+            android:layout_height="258dp"
+            android:background="@color/coloryksinda"
+            android:onClick="pressedOption2"
+            android:text="Activity nr 2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="pressedPass"
-        android:text="Pass and lose a life" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="301dp"
+            android:layout_height="wrap_content"
+            android:onClick="pressedPass"
+            android:text="Pass and lose a life"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.254" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
