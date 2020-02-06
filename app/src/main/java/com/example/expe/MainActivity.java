@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
             Button btn = (Button) findViewById(R.id.activityButton);
             btn.setEnabled(false);
         }
+
+        TextView username = findViewById(R.id.username);
+        TextView xpväli = findViewById(R.id.xpväli);
+        TextView elud = findViewById(R.id.elud);
+        username.setText(getName());
+        xpväli.setText(String.valueOf(getXP()));
+        elud.setText(String.valueOf(getElud()));
     }
 
     @Override //ei lase welcome screenile tagasi.
@@ -50,11 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Missioninfo(View view) {
         Intent intent = new Intent(this, ViewTegevus.class);
-        System.out.println("sdfkalsdfknsl");
-        try{
-        startActivity(intent);}catch (Exception e){
-            System.out.println(e);
-        }
+        startActivity(intent);
     }
 
 
@@ -90,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
         writeProfile(getName()+"\n"+(getXP()+amount) + "\n" + getElud());
     }
 
-    public String getElud() {
+    public int getElud() {
         String in = readProfile();
-        return in.split("\n")[2];
+        return Integer.parseInt(in.split("\n")[2]);
     }
 
     public String getName() {
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         return Integer.parseInt(in.split("\n")[1]);
     }
     public void eemaldaElu(){
-        writeProfile(getName()+"\n"+getXP() + "\n" + (Integer.parseInt(getElud())-1));
+        writeProfile(getName()+"\n"+getXP() + "\n" + (getElud()-1));
     }
 
     public void writeProfile(String info) {

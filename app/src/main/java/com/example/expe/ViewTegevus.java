@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 
 public class ViewTegevus extends AppCompatActivity  {
@@ -30,12 +31,63 @@ public class ViewTegevus extends AppCompatActivity  {
     }
 
     public void finish(View view){
+        addXP(t.getXP());
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
     }
     public void quit(View view){
+        eemaldaElu();
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
+    }
+
+
+    public String readProfile() {
+        try {
+            FileInputStream fileInputStream = openFileInput("andmed.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer = new StringBuffer();
+
+            String lines;
+            while ((lines = bufferedReader.readLine()) != null) {
+                stringBuffer.append(lines + "\n");
+            }
+            return stringBuffer.toString();
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public void addXP(int amount){
+        writeProfile(getName()+"\n"+(getXP()+amount) + "\n" + getElud());
+    }
+
+    public int getElud() {
+        String in = readProfile();
+        return Integer.parseInt(in.split("\n")[2]);
+    }
+
+    public String getName() {
+        String in = readProfile();
+        return in.split("\n")[0];
+    }
+    public int getXP() {
+        String in = readProfile();
+        return Integer.parseInt(in.split("\n")[1]);
+    }
+
+    public void eemaldaElu(){
+        writeProfile(getName()+"\n"+getXP() + "\n" + (getElud()-1));
+    }
+    public void writeProfile(String info) {
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("andmed.txt", MODE_PRIVATE);
+            fileOutputStream.write(info.getBytes());
+            fileOutputStream.close();
+        } catch (Exception e) {
+        }
     }
 
 
