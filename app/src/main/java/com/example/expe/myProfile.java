@@ -29,7 +29,15 @@ public class myProfile extends AppCompatActivity {
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
         xpväli.setText(String.valueOf(getXP()));
-        elud.setText(String.valueOf(getElud()));
+
+        int heart = 0x2764;
+        int empty = 0x2661;
+
+        String heartAsString = new String(Character.toChars(heart));
+        String emptyAsString = new String(Character.toChars(empty));
+        String lives = new String(new char[getElud()]).replace("\0", heartAsString) + new String(new char[3 - getElud()]).replace("\0", emptyAsString);
+        elud.setText(lives);
+
     }
 
     public void tehtud(View view){

@@ -13,13 +13,36 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    boolean livesOut = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        TextView notification = findViewById(R.id.notificationText);
+
+        if(getElud() == 0){
+            Button findActivityButton = findViewById(R.id.activityButton);
+            findActivityButton.setEnabled(false);
+            livesOut = true;
+        }
+        else{
+            Button findActivityButton = findViewById(R.id.activityButton);
+            findActivityButton.setEnabled(true);
+            livesOut = false;
+            notification.setVisibility(View.INVISIBLE);
+        }
 
         if (readMission() == null){
             Button btn = (Button) findViewById(R.id.current);
@@ -36,9 +59,36 @@ public class MainActivity extends AppCompatActivity {
         xpväli.setText(String.valueOf(getXP()));
 
         int heart = 0x2764;
-        String heartAsString = new String(Character.toChars(heart));
-        String lives = new String(new char[getElud()]).replace("\0", heartAsString);
-        elud.setText(lives);
+        int empty = 0x2661;
+        if(!livesOut) {
+            String heartAsString = new String(Character.toChars(heart));
+            String emptyAsString = new String(Character.toChars(empty));
+            String lives = new String(new char[getElud()]).replace("\0", heartAsString) + new String(new char[3 - getElud()]).replace("\0", emptyAsString);
+            elud.setText(lives);
+        }
+        else{
+            String emptyAsString = new String(Character.toChars(empty));
+            String lives = new String(new char[3 - getElud()]).replace("\0", emptyAsString);
+            elud.setText(lives);
+            notification.setVisibility(View.VISIBLE);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            String currentDateandTime = sdf.format(new Date());
+
+            Date date = null;
+            try {
+                date = sdf.parse(currentDateandTime);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.HOUR, 2);
+
+            SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+            String time = df.format(calendar.getTime());
+            notification.setText("You have zero hearts remaining! Heart will regenerate at " + time);
+        }
 
     }
 

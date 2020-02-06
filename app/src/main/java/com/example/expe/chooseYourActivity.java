@@ -49,8 +49,11 @@ public class chooseYourActivity extends AppCompatActivity {
         xpväli.setText(String.valueOf(getXP()));
 
         int heart = 0x2764;
+        int empty = 0x2661;
+
         String heartAsString = new String(Character.toChars(heart));
-        String lives = new String(new char[getElud()]).replace("\0", heartAsString);
+        String emptyAsString = new String(Character.toChars(empty));
+        String lives = new String(new char[getElud()]).replace("\0", heartAsString) + new String(new char[3 - getElud()]).replace("\0", emptyAsString);
         elud.setText(lives);
 
         bt1 = (Button) findViewById(R.id.btt1);
