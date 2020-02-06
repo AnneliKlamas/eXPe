@@ -1,7 +1,10 @@
 package com.example.expe;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,17 +33,31 @@ public class myProfile extends AppCompatActivity {
     }
 
     public void tehtud(View view){
-
+        TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
+        txt.setText("Completed tasks");
+        TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
     }
 
     public void edetabel(View view){
+        TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
+        txt.setText("Scoreboard");
+        TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
 
+        TableRow tr = new TableRow(this);
+        TextView s = new TextView(this);
+        s.setText("Juuus");
+        s.setGravity(Gravity.CENTER);
+        tr.addView(s);
     }
 
     public void achivements(View view){
-
+        TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
+        txt.setText("Achivements");
+        TableLayout table = findViewById(R.id.tableLayout);
+        table.removeAllViews();
     }
-
 
     public int getElud() {
         String in = readProfile();
