@@ -16,7 +16,7 @@ public class WelcomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
-        writeProfile("Juss Kaalikas\n120\n3");//nimi, xp, elud
+        writeProfile("Juss Kaalikas\n101\n3");//nimi, xp, elud
         writeMission(null);
         writeCompletedTasks("");
 

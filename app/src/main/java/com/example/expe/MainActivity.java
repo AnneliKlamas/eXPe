@@ -1,16 +1,32 @@
 package com.example.expe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.zxing.Result;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -23,16 +39,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+import static android.Manifest.permission.CAMERA;
+
+public class MainActivity extends AppCompatActivity{
 
     boolean livesOut = false;
     Tegevus t;
 
 
+    private static final int REQUEST_CAMERA = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final Activity activity = this;
 
         TextView notification = findViewById(R.id.notificationText);
 
@@ -48,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
             notification.setVisibility(View.INVISIBLE);
         }
 
-
-
+        Button scan = findViewById(R.id.scan);
         Button username = findViewById(R.id.profileButton);
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
@@ -109,6 +130,19 @@ public class MainActivity extends AppCompatActivity {
             txt4.setText("If you finish this task you get "+t.getXP() + "xp.");
         }
 
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator intentIntegrator = new IntentIntegrator(activity);
+                intentIntegrator.setDesiredBarcodeFormats(intentIntegrator.ALL_CODE_TYPES);
+                intentIntegrator.setBeepEnabled(false);
+                intentIntegrator.setCameraId(0);
+                intentIntegrator.setPrompt("SCAN");
+                intentIntegrator.setBarcodeImageEnabled(false);
+                intentIntegrator.initiateScan();
+            }
+        });
+
         Button quit = (Button) findViewById(R.id.quit);
 
         quit.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +157,71 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private boolean checkPermission(){
+        return (ContextCompat.checkSelfPermission(MainActivity.this, CAMERA) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    private void requestPermission(){
+        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String permission[], int grantResults[]){
+        switch(requestCode){
+            case REQUEST_CAMERA:
+                if(grantResults.length > 0){
+                    boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    if(cameraAccepted){
+                        Toast.makeText(MainActivity.this, "Permission Granted!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this, "Permission Denied!", Toast.LENGTH_SHORT).show();
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                            if(shouldShowRequestPermissionRationale(CAMERA)){
+                                displayAlertMessage("You need allow access for both permissions!", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        requestPermissions(new String[]{CAMERA}, REQUEST_CAMERA);
+                                    }
+                                });
+                                return;
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+    }
+/*
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if (checkPermission()){
+                if(scannerView == null){
+                    scannerView = new ZXingScannerView(this);
+                    setContentView(scannerView);
+                }
+                scannerView.setResultHandler(this);
+                scannerView.startCamera();
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        scannerView.stopCamera();
+    }
+*/
+    public void displayAlertMessage(String message, DialogInterface.OnClickListener listener){
+        new AlertDialog.Builder(MainActivity.this)
+                .setMessage(message)
+                .setPositiveButton("OK", listener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
     }
 
     @Override //ei lase welcome screenile tagasi.
@@ -144,6 +243,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void mScan (View view) {
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        startActivityForResult(intent, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        IntentResult Result = IntentIntegrator.parseActivityResult(requestCode , resultCode ,data);
+        if(Result != null){
+            if(Result.getContents() == null){
+                Log.d("MainActivity" , "cancelled scan");
+                Toast.makeText(this, "cancelled", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                //Log.d("MainActivity" , "Scanned");
+                //Toast.makeText(this,"Scanned -> " + Result.getContents(), Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+        else {
+            super.onActivityResult(requestCode , resultCode , data);
+        }
+    }
 
 
 
@@ -223,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
-    public void finish(View view){
+    public void finish(){
         addXP(t.getXP());
         Intent intent = new Intent(this, Feedback.class);
         intent.putExtra("kasFinishisin", true);
@@ -232,4 +356,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+    /*@Override
+    public void handleResult(final Result result) {
+        final String scanResult = result.getText();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Scan Result");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                scannerView.resumeCameraPreview(MainActivity.this);
+            }
+        });
+        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(scanResult));
+                startActivity(intent);
+            }
+        });
+        builder.setMessage(scanResult);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }*/
 }
