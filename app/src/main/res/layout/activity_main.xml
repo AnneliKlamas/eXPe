@@ -158,7 +158,7 @@
         android:layout_marginTop="55dp"
         android:background="@drawable/pop_bg"
         android:onClick="activity"
-        android:text="Start your adventure!"
+        android:text="Start my adventure!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
