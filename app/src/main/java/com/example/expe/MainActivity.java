@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     boolean livesOut = false;
     Tegevus t;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +104,18 @@ public class MainActivity extends AppCompatActivity {
             txt3.setText(t.getFunFact());
             txt4.setText(""+t.getXP());
         }
+
+        Button quit = (Button) findViewById(R.id.quit);
+
+        quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PopActivity.class);
+                startActivity(i);
+            }
+        });
+
+
 
 
 
@@ -213,11 +226,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void quit(View view){
-        eemaldaElu();
-        Intent intent = new Intent(this, Feedback.class);
-        intent.putExtra("kasFinishisin", false);
-        startActivity(intent);
-    }
+
 
 }

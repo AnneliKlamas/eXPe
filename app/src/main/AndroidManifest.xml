@@ -9,14 +9,18 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".findActivity"></activity>
-        <activity android:name=".appInfo"></activity>
-        <activity android:name=".myProfile"></activity>
-        <activity android:name=".chooseYourActivity"></activity>
-        <activity android:name=".Feedback"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".PopActivity"
+            android:theme="@style/AppTheme.PopMe">
+        </activity>
+        <activity android:name=".findActivity" />
+        <activity android:name=".appInfo" />
+        <activity android:name=".myProfile" />
+        <activity android:name=".chooseYourActivity" />
+        <activity android:name=".Feedback" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".WelcomeScreen">
-        <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

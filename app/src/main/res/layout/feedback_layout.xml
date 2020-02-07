@@ -23,8 +23,8 @@
         android:layout_marginTop="250dp"
         android:ems="10"
         android:gravity="center"
+        android:hint="Please rate how interesting the task was."
         android:inputType="textPersonName"
-        android:text="Please rate how interesting the task was."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

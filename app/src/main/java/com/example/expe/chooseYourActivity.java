@@ -59,6 +59,18 @@ public class chooseYourActivity extends AppCompatActivity {
 
         bt2 = (Button) findViewById(R.id.btt2);
         bt2.setText(annaSuvaliseTegevusePealkiri(kasOlenÜksi));
+
+        Button popUp = findViewById(R.id.button4);
+
+        popUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PopActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
     public void pressedOption1(View view) {
