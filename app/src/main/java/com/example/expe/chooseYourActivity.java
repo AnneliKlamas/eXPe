@@ -73,6 +73,10 @@ public class chooseYourActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     public void pressedOption1(View view) {
         writeMission(leiaKlikitud(bt1.getText().toString()));
         Intent intent = new Intent(this, MainActivity.class);

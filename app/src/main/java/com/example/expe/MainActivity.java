@@ -3,8 +3,10 @@ package com.example.expe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -99,10 +101,12 @@ public class MainActivity extends AppCompatActivity {
             TextView txt2 = (TextView)findViewById(R.id.description);
             TextView txt3 = (TextView)findViewById(R.id.funfact);
             TextView txt4 = (TextView)findViewById(R.id.xp);
+            txt1.setTypeface(null, Typeface.BOLD);
+            txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
             txt1.setText(t.getTitle());
             txt2.setText(t.getDescription());
-            txt3.setText(t.getFunFact());
-            txt4.setText(""+t.getXP());
+            txt3.setText("Fun fact is that " + t.getFunFact());
+            txt4.setText("If you finish this task you get "+t.getXP() + "xp.");
         }
 
         Button quit = (Button) findViewById(R.id.quit);

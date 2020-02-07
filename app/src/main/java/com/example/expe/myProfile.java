@@ -1,6 +1,8 @@
 package com.example.expe;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TableLayout;
@@ -26,11 +28,14 @@ public class myProfile extends AppCompatActivity {
 
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Completed tasks");
+        txt.setTypeface(null, Typeface.BOLD);
+        txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
+
         TextView username = findViewById(R.id.username);
         TextView xpväli = findViewById(R.id.xpväli);
         TextView elud = findViewById(R.id.elud);
         username.setText(getName());
-        xpväli.setText(String.valueOf(getXP()));
+        xpväli.setText(String.valueOf(getXP())+"xp");
 
         int heart = 0x2764;
         int empty = 0x1F5A4;
@@ -62,6 +67,8 @@ public class myProfile extends AppCompatActivity {
     public void tehtud(View view){
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Completed tasks");
+        txt.setTypeface(null, Typeface.BOLD);
+        txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
         TableLayout table = findViewById(R.id.tableLayout);
         table.removeAllViews();
         table.setStretchAllColumns(true);
@@ -83,6 +90,8 @@ public class myProfile extends AppCompatActivity {
     public void edetabel(View view){
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Scoreboard");
+        txt.setTypeface(null, Typeface.BOLD);
+        txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
         TableLayout table = findViewById(R.id.tableLayout);
         table.removeAllViews();
 
@@ -106,6 +115,13 @@ public class myProfile extends AppCompatActivity {
         user.setText("\nName\n");
         user.setGravity(Gravity.CENTER);
         score.setText("\nScore\n");
+
+
+        user.setTypeface(null, Typeface.BOLD);
+        user.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f);
+        score.setTypeface(null, Typeface.BOLD);
+        score.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f);
+
         score.setGravity(Gravity.CENTER);
 
         headerRow.addView(user);
@@ -137,6 +153,8 @@ public class myProfile extends AppCompatActivity {
     public void achivements(View view){
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
         txt.setText("Achivements");
+        txt.setTypeface(null, Typeface.BOLD);
+        txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
         TableLayout table = findViewById(R.id.tableLayout);
         table.removeAllViews();
 
