@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Life"
+            android:text="Lives"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -117,7 +117,7 @@
         android:layout_marginTop="55dp"
         android:background="@drawable/pop_bg"
         android:onClick="activity"
-        android:text="Choose acivity!"
+        android:text="Start your adventure!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notificationText" />

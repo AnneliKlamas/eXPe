@@ -19,16 +19,16 @@ public class chooseYourActivity extends AppCompatActivity {
 
     private boolean kasOlenÜksi;
 
-    private Tegevus t1 = new Tegevus("Billiard", "You can play billiard there and there.", "The first coin-operated billiard table was patented in 1903.", false, 10);
-    private Tegevus t2 = new Tegevus("Botanical garden", "Visit the botanical garden.", "Kew Gardens is the world's largest collection of living plants situated in London", true, 8);
-    private Tegevus t3 = new Tegevus("Bowling", "You can play bowling there and there.", "The first indoor bowling alleys were opened in New York City in the 1840s. The very first was Knickerbocker Alleys.", false, 10);
-    private Tegevus t4 = new Tegevus("Jumping park", "Visit jumping park @street", "The inventor of the trampoline showed off his invention with a kangaroo in 1936.", true, 8);
-    private Tegevus t5 = new Tegevus("Jumping park with friends", "Visit jumping park @street", "The inventor of the trampoline showed off his invention with a kangaroo in 1936.", false, 8);
-    private Tegevus t6 = new Tegevus("Natural history museum", "Go to @street to learn about our nature.", "Cows kill more people than sharks.", true, 8);
-    private Tegevus t7 = new Tegevus("Natural history museum with friends", "Go to @street to learn about our nature.", "Cows kill more people than sharks.", false, 8);
-    private Tegevus t8 = new Tegevus("Ice skating", "Go to ice skaiting rink", "Thousands of years ago, residents in Finland strapped animal bones to their feet to glide across frozen lakes rather than walk around them.", true, 8);
-    private Tegevus t9 = new Tegevus("Ice skating with friends", "Go to ice skaiting rink", "Thousands of years ago, residents in Finland strapped animal bones to their feet to glide across frozen lakes rather than walk around them.", false, 8);
-    private Tegevus t10 = new Tegevus("Botanical garden with friends", "Visit the botanical garden.", "Kew Gardens is the world's largest collection of living plants situated in London", false, 8);
+    private Tegevus t1 = new Tegevus("Play billiards", "You can play billiard there and there.", "The first coin-operated billiard table was patented in 1903.", false, 10);
+    private Tegevus t2 = new Tegevus("Go to the botanical garden", "Visit the botanical garden @location.", "Kew Gardens is the world's largest collection of living plants situated in London", true, 8);
+    private Tegevus t3 = new Tegevus("Go bowling", "You can play bowling there and there.", "The first indoor bowling alleys were opened in New York City in the 1840s. The very first was Knickerbocker Alleys.", false, 10);
+    private Tegevus t4 = new Tegevus("Go to the trampoline center", "Visit the trampoline center @street", "The inventor of the trampoline showed off his invention with a kangaroo in 1936.", true, 8);
+    private Tegevus t5 = new Tegevus("Go to the trampoline center", "Visit the trampoline center @street", "The inventor of the trampoline showed off his invention with a kangaroo in 1936.", false, 8);
+    private Tegevus t6 = new Tegevus("Go to the natural history museum", "Go to @street to learn about our history.", "Cows kill more people than sharks.", true, 8);
+    private Tegevus t7 = new Tegevus("Go to the natural history museum", "Go to @street to learn about our history.", "Cows kill more people than sharks.", false, 8);
+    private Tegevus t8 = new Tegevus("Go ice skating", "Go to the ice skating rink @location", "Thousands of years ago, residents of Finland strapped animal bones to their feet to glide across frozen lakes.", true, 8);
+    private Tegevus t9 = new Tegevus("Go ice skating", "Go to the ice skating rink @location", "Thousands of years ago, residents of Finland strapped animal bones to their feet to glide across frozen lakes.", false, 8);
+    private Tegevus t10 = new Tegevus("Go to the botanical garden", "Visit the botanical garden @location.", "Kew Gardens is the world's largest collection of living plants situated in London", false, 8);
 
 
     private Tegevus[] arr = {t1, t2,t3, t4, t5, t6, t7, t8, t9, t10};

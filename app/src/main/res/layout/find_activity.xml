@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Life"
+            android:text="Lives"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -44,7 +44,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_corners"
             android:onClick="chooseActivityAlone"
-            android:text="I am alone"
+            android:text="Explorer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +60,7 @@
             android:layout_height="273dp"
             android:background="@drawable/rounded_cornersgreen"
             android:onClick="chooseActivityGroup"
-            android:text="I am with a group "
+            android:text="Group of explorers"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
