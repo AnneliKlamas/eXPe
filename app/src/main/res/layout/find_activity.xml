@@ -52,6 +52,7 @@
                 android:onClick="chooseActivityAlone"
                 android:paddingBottom="@android:dimen/notification_large_icon_height"
                 android:text="SOLO"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -61,20 +62,21 @@
             android:layout_width="match_parent"
             android:layout_height="423dp">
 
-        <Button
-            android:id="@+id/groupButton"
-            android:layout_width="298dp"
-            android:layout_height="273dp"
-            android:background="@drawable/orange_button"
-            android:drawableBottom="@drawable/activitygroup"
-            android:onClick="chooseActivityGroup"
-            android:paddingBottom="@android:dimen/notification_large_icon_height"
-            android:text="GROUP"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
+            <Button
+                android:id="@+id/groupButton"
+                android:layout_width="298dp"
+                android:layout_height="273dp"
+                android:background="@drawable/orange_button"
+                android:drawableBottom="@drawable/activitygroup"
+                android:onClick="chooseActivityGroup"
+                android:paddingBottom="@android:dimen/notification_large_icon_height"
+                android:text="GROUP"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.096" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout

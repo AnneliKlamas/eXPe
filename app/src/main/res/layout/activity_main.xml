@@ -165,7 +165,7 @@
         android:background="@drawable/orange_button"
         android:onClick="activity"
         android:text="Start my adventure!"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notificationText" />
