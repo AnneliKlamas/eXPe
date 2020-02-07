@@ -34,6 +34,7 @@
             android:layout_width="339dp"
             android:layout_height="82dp"
             android:text="We're a very cool company."
+            android:textColor="@color/black"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
