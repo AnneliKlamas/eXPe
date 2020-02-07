@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity{
             txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
             txt1.setText(t.getTitle());
             txt2.setText(t.getDescription());
-            txt3.setText("Fun fact is that " + t.getFunFact());
+            txt3.setText(t.getFunFact());
             txt4.setText("If you finish this task you get "+t.getXP() + "xp.");
         }
 
