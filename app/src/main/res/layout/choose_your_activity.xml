@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="402dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBar"
         app:layout_constraintEnd_toEndOf="parent"
