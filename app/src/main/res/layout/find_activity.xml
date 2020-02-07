@@ -1,76 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@drawable/background3">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/profileButton"
-            android:layout_width="222dp"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_stat_name"
-            android:onClick="profile"
-            android:text="View profile" />
+            android:background="@color/colorBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/elud"
-            android:layout_width="189dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Lives"
-            android:textSize="24sp" />
+            <Button
+                android:id="@+id/profileButton"
+                android:layout_width="222dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_stat_name"
+                android:onClick="profile"
+                android:text="View profile" />
+
+            <TextView
+                android:id="@+id/elud"
+                android:layout_width="189dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Lives"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="273dp">
+
+            <Button
+                android:id="@+id/onePersonButton"
+                android:layout_width="301dp"
+                android:layout_height="258dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/pop_buttons"
+                android:onClick="chooseActivityAlone"
+                android:text="Explorer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="423dp">
+
+            <Button
+                android:id="@+id/groupButton"
+                android:layout_width="298dp"
+                android:layout_height="273dp"
+                android:background="@drawable/orange_button"
+                android:onClick="chooseActivityGroup"
+                android:text="Group of explorers"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.096" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="227dp"
+            android:orientation="horizontal" />
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="273dp">
-
-        <Button
-            android:id="@+id/onePersonButton"
-            android:layout_width="301dp"
-            android:layout_height="258dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_corners"
-            android:onClick="chooseActivityAlone"
-            android:text="Explorer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="423dp">
-
-        <Button
-            android:id="@+id/groupButton"
-            android:layout_width="298dp"
-            android:layout_height="273dp"
-            android:background="@drawable/rounded_cornersgreen"
-            android:onClick="chooseActivityGroup"
-            android:text="Group of explorers"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="227dp"
-        android:orientation="horizontal" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

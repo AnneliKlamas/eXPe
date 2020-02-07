@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="270dp"
-    android:background="@drawable/pop_bg"
+    android:layout_height="match_parent"
+    android:alwaysDrawnWithCache="false"
+    android:animateLayoutChanges="false"
+    android:background="@drawable/orange_button"
     android:scrollbarDefaultDelayBeforeFade="200"
     tools:context=".PopActivity">
 
@@ -15,6 +17,7 @@
         android:layout_height="71dp"
         android:layout_marginBottom="8dp"
         android:text="Are you sure you want to quit this mission?"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="You will lose a life"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
