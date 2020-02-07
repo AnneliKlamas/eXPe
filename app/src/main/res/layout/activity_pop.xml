@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:alwaysDrawnWithCache="false"
     android:animateLayoutChanges="false"
-    android:background="@drawable/orange_button"
+    android:background="@drawable/pop_up"
     android:scrollbarDefaultDelayBeforeFade="200"
     tools:context=".PopActivity">
 
@@ -39,8 +39,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="255dp"
+        android:layout_height="51dp"
         android:layout_marginBottom="1dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,22 +51,23 @@
 
         <Button
             android:id="@+id/returnButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:background="@drawable/pop_buttons"
             android:text="Back"
             android:textSize="18sp" />
 
         <Space
-            android:layout_width="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/quitButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:background="@drawable/pop_buttons"
+            android:fadingEdge="horizontal|vertical"
             android:text="Quit"
             android:textSize="18sp" />
     </LinearLayout>
