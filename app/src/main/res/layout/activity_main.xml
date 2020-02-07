@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="402dp"
+        android:layout_width="-0.5dp"
         android:layout_height="wrap_content"
         android:background="@color/colorBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,6 +19,7 @@
             android:id="@+id/profileButton"
             android:layout_width="222dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/pop_bg"
             android:drawableLeft="@drawable/ic_stat_name"
             android:onClick="profile"
             android:text="View profile" />
@@ -40,6 +41,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/pop_bg"
         android:onClick="info"
         android:text="About eXPe"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,11 +95,10 @@
             tools:layout_editor_absoluteX="1dp">
 
             <Button
-                android:id="@+id/finish"
+                android:id="@+id/scan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="finish"
                 android:text="Finish" />
 
             <Button
@@ -114,6 +115,7 @@
         android:layout_width="345dp"
         android:layout_height="203dp"
         android:layout_marginTop="55dp"
+        android:background="@drawable/pop_bg"
         android:onClick="activity"
         android:text="Choose acivity!"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,4 +135,5 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.168"
         tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

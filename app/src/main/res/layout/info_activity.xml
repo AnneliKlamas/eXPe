@@ -5,12 +5,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="293dp"
-        android:contentDescription="pilt meist"
-        app:srcCompat="@drawable/ic_launcher_uus" />
+        android:layout_height="236dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="261dp"
+            android:layout_height="156dp"
+            android:contentDescription="pilt meist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_launcher_uus"
+            tools:layout_editor_absoluteY="45dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Space
         android:layout_width="match_parent"
@@ -20,6 +28,6 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is our about us!"
+        android:text="We're a very cool company."
         android:textSize="36sp" />
 </LinearLayout>

@@ -46,12 +46,19 @@
             android:id="@+id/returnButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/pop_buttons"
             android:text="Go back" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/quitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/pop_buttons"
             android:text="Quit anyway" />
     </LinearLayout>
 
