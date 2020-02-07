@@ -136,8 +136,9 @@ public class MainActivity extends AppCompatActivity{
                 IntentIntegrator intentIntegrator = new IntentIntegrator(activity);
                 intentIntegrator.setDesiredBarcodeFormats(intentIntegrator.ALL_CODE_TYPES);
                 intentIntegrator.setBeepEnabled(false);
+                intentIntegrator.setOrientationLocked(true);
                 intentIntegrator.setCameraId(0);
-                intentIntegrator.setPrompt("SCAN");
+                intentIntegrator.setPrompt("Scan QR code to finish task!");
                 intentIntegrator.setBarcodeImageEnabled(false);
                 intentIntegrator.initiateScan();
             }
