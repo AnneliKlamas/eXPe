@@ -61,6 +61,10 @@ public class chooseYourActivity extends AppCompatActivity {
         bt2.setText(annaSuvaliseTegevusePealkiri(kasOlenÜksi));
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
     public void pressedOption1(View view) {
         writeMission(leiaKlikitud(bt1.getText().toString()));
         Intent intent = new Intent(this, MainActivity.class);
