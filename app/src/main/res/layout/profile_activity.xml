@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Life"
+            android:text="Lives"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -65,7 +65,7 @@
             android:layout_width="154dp"
             android:layout_height="wrap_content"
             android:onClick="achivements"
-            android:text="Achivements" />
+            android:text="Achievements" />
 
     </LinearLayout>
 

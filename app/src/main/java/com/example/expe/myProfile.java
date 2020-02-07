@@ -160,7 +160,7 @@ public class myProfile extends AppCompatActivity {
 
     public void achivements(View view){
         TextView txt = (TextView)findViewById(R.id.vaatepealkiri);
-        txt.setText("Achivements");
+        txt.setText("Achievements");
         txt.setTypeface(null, Typeface.BOLD);
         txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 45f);
         TableLayout table = findViewById(R.id.tableLayout);
@@ -170,7 +170,7 @@ public class myProfile extends AppCompatActivity {
         table.bringToFront();
 
 
-        String ac1 = "Complete 3 task!";
+        String ac1 = "Complete 3 tasks!";
         String ac2 = "Lose 3 hearts!";
         List<String> achivements = new ArrayList<>();
         achivements.add(ac1);

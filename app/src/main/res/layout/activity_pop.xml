@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Are You sure You want to quit?"
+        android:text="Are you sure you want to quit this mission?"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="It will cost You -1 life"
+        android:text="You will lose a life"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/pop_buttons"
-            android:text="Go back" />
+            android:text="Back" />
 
         <Space
             android:layout_width="20dp"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/pop_buttons"
-            android:text="Quit anyway" />
+            android:text="Quit" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
