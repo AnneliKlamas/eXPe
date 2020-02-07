@@ -28,6 +28,10 @@ public class Feedback extends AppCompatActivity {
             Tegevus t = readMission();
             writeCompletedTasks(readCompletedTasks() + "\n" + t.getTitle());
         }
+        else{
+            findViewById(R.id.imageView2).setVisibility(View.INVISIBLE);
+
+        }
     }
 
     public void submit(View view) {
