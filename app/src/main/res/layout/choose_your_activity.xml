@@ -77,10 +77,11 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="301dp"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle"
             android:onClick="pressedPass"
-            android:text="Pass and lose a life"
+            android:text="X"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
